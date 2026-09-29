@@ -1,0 +1,56 @@
+/* ---------- Page ---------- */
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #16242b;
+  color: #e9e2cf;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+/* ---------- Canvas frame ---------- */
+.frame {
+  position: relative;                 /* lets the HUD be positioned inside it */
+  width: min(92vmin, 720px);          /* square, scales down on small screens */
+  aspect-ratio: 1 / 1;
+  padding: 8px;
+  background: #e9e2cf;
+  border-radius: 6px;
+  box-shadow: 0 0 0 4px #0d161a, 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #9fd3e6;                /* fallback; main.js paints the sky */
+  border-radius: 2px;
+  image-rendering: pixelated;
+}
+
+/* ---------- HUD (top-left) ---------- */
+.hud {
+  position: absolute;
+  top: 20px;
+  left: 22px;
+  font-size: clamp(13px, 2.6vmin, 20px);
+  font-weight: bold;
+  line-height: 1.5;
+  color: #10222a;
+  pointer-events: none;               /* clicks pass through to the canvas */
+}
+
+.hint {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.75;
+}

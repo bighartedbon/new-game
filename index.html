@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platformer – Level 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- The frame holds the canvas and the HUD that sits on top of it -->
+  <main class="frame">
+    <canvas id="game" width="720" height="720" aria-label="Game canvas"></canvas>
+
+    <!-- HUD (top-left). main.js updates the score text -->
+    <div class="hud" aria-live="polite">
+      <div>LEVEL: <span id="hud-level">1</span></div>
+      <div>SCORE: <span id="hud-score">0</span></div>
+    </div>
+  </main>
+
+  <p class="hint">Move: ← → / A D &nbsp;|&nbsp; Hold jump: ↑ / W / Space</p>
+
+  <!--
+    Plain <script> tags (no ES modules) so the game also works when
+    opened straight from disk. ORDER MATTERS: classes must be loaded
+    before main.js uses them.
+  -->
+  <script src="src/platform.js"></script>
+  <script src="src/collectible.js"></script>
+  <script src="src/player.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
